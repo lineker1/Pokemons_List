@@ -1,0 +1,1 @@
+const String newsAPIBaseURL = 'https://raw.githubusercontent.com/MarceloDJunior/pokemon-app/main/db/data.json';

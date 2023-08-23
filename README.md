@@ -1,6 +1,9 @@
 # pokemon_list
 
-A new Flutter project.
+Criação de App com listagem de pokemons com json.
+
+criado com clean architecture.
+projeto criado para fins de estudos.
 
 ## Getting Started
 

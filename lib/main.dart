@@ -4,7 +4,6 @@ import 'package:pokemon_list/features.auth/presentation/pages/initial_screen.dar
 import 'package:pokemon_list/injection.dart';
 
 import 'config/theme/app_themes.dart';
-import 'features.auth/presentation/widgets/pokemon_item.dart';
 
 void main() async {
   await GetIt.I.allReady();

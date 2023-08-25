@@ -54,35 +54,48 @@ class _HomeInitialScreenState extends State<HomeInitialScreen> {
           );
         }
         if (state is PokemonSucessState) {
-          return GridView.builder(
-            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 2,
-            ),
-            itemCount: state.result.length,
-            itemBuilder: (context, index) {
-              final pokemon = state.result[index];
-              return InkWell(
-                onTap: () {},
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Card(
-                    elevation: 8,
-                    child: Column(
-                      children: [
-                        Image.network(
-                          pokemon.img ?? '',
-                          width: 100,
-                          height: 100,
-                          fit: BoxFit.fill,
-                        ),
-                        const SizedBox(height: 10),
-                        Text('${pokemon.number} - ${pokemon.name}'),
-                      ],
-                    ),
-                  ),
+          return Column(
+            children: [
+              TextField(
+                onChanged: (query) => widget.bloc.add(SearchEvent(query)),
+                decoration: const InputDecoration(
+                  labelText: 'Search by name',
+                  prefixIcon: Icon(Icons.search),
                 ),
-              );
-            },
+              ),
+              Expanded(
+                child: GridView.builder(
+                  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                    crossAxisCount: 2,
+                  ),
+                  itemCount: state.result.length,
+                  itemBuilder: (context, index) {
+                    final pokemon = state.result[index];
+                    return InkWell(
+                      onTap: () {},
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Card(
+                          elevation: 8,
+                          child: Column(
+                            children: [
+                              Image.network(
+                                pokemon.img ?? '',
+                                width: 100,
+                                height: 100,
+                                fit: BoxFit.fill,
+                              ),
+                              const SizedBox(height: 10),
+                              Text('${pokemon.number} - ${pokemon.name}'),
+                            ],
+                          ),
+                        ),
+                      ),
+                    );
+                  },
+                ),
+              ),
+            ],
           );
         }
         return const SizedBox();

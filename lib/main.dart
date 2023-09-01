@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
+import 'package:pokemon_list/features.auth/presentation/pages/info_pokemon_screen.dart';
 import 'package:pokemon_list/features.auth/presentation/pages/initial_screen.dart';
 import 'package:pokemon_list/injection.dart';
 
@@ -19,7 +20,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: theme(),
-      home: HomeInitialScreen(bloc: sl()),
+      initialRoute: '/initial',
+      routes: {
+        '/initial': (context) => HomeInitialScreen(bloc: sl()),
+        '/info_screen': (context) => const InfoPokemonScreen(),
+      },
     );
   }
 }

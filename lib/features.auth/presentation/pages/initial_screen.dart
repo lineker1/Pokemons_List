@@ -72,7 +72,10 @@ class _HomeInitialScreenState extends State<HomeInitialScreen> {
                   itemBuilder: (context, index) {
                     final pokemon = state.result[index];
                     return InkWell(
-                      onTap: () {},
+                      onTap: () {
+                        Navigator.of(context)
+                            .pushNamed('/info_screen', arguments: pokemon);
+                      },
                       child: Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Card(
